@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    @if($user->rol_id == (1 || 2))
+                    @if($user->rol_id == 1 || $user->rol_id == 2)
                         <div class="card-body">
                             {{ __('Bienvenido') }} {{ $user->rol->name }}
 
@@ -68,7 +68,7 @@
                             </table>
 
                         </div>
-                    @elseif($user->rol_id == (3 ||4))
+                    @elseif($user->rol_id == 3 || $user->rol_id == 4)
                         <div class="card-body">
                             {{ __('Bienvenido') }} {{ $user->rol->name }}
                             <p>perteneces al grupo de: {{ $user->people->group->name }}</p>

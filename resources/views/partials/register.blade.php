@@ -37,10 +37,6 @@
                                 <input type="password" name="password" class="form-control" id="password" required>
                             </div>
                             <div class="form-group">
-                                <label for="password_confirmation" class="col-form-label">Confirmación Password:</label>
-                                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" required>
-                            </div>
-                            <div class="form-group">
                                 <label for="rol" class="col-form-label">Nivel de Accesso:</label>
                                 <select name="rol" id="rol" required>
                                     @foreach ($rols as $item)
@@ -74,7 +70,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <a href="/home" class="btn btn-secondary" data-dismiss="modal">volver</a>
                             <button type="submit" class="btn btn-primary">Registrar</button>
                         </div>
                     </form>

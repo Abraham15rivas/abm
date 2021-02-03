@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\{Person, Rol, Group, User};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Validator;
 
 class PersonController extends Controller
 {
@@ -39,16 +40,6 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-            'name_r' => 'required|string|max:255',
-            'surname' => 'required|string|max:255',
-            'adress' => 'required|string', 
-            'phone_number' => 'require|digits:11'
-        ]);
-
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,

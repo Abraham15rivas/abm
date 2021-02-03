@@ -38,14 +38,10 @@
                                 <input type="password" name="password" class="form-control" id="password" value="" required>
                             </div>
                             <div class="form-group">
-                                <label for="password_confirmation" class="col-form-label">Confirmación Password:</label>
-                                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" value="" required>
-                            </div>
-                            <div class="form-group">
                                 <label for="rol" class="col-form-label">Nivel de Accesso:</label>
                                 <select name="rol" id="rol" required>
                                     @foreach ($rols as $item)
-                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        <option value="{{ $item->id }}" @if($person->user->rol->id == $item->id) seleted @endif>{{ $item->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -69,13 +65,13 @@
                                 <label for="group" class="col-form-label">Grupo de usuario</label>
                                 <select name="group" id="rol" required>
                                     @foreach ($groups as $item)
-                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        <option value="{{ $item->id }}" @if($person->group->id == $item->id) seleted @endif>{{ $item->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <a href="/home" class="btn btn-secondary" data-dismiss="modal">volver</a>
                             <button type="submit" class="btn btn-primary">Guardar cambios</button>
                         </div>
                     </form>
