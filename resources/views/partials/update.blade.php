@@ -7,8 +7,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Actualización de datos') }}</div>
-                <div class="card-body">
+                <div class="card-header vino">{{ __('Actualización de datos') }}</div>
+                <div class="card-body body-card">
                     @if ($errors->any())
                         <div class="content">
                             <div class="alert alert-danger">

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header vino">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -15,9 +15,9 @@
                     @endif
 
                     @if($user->rol_id == 1)
-                        <div class="card-body">
-                            {{ __('Bienvenido') }} {{ $user->name }}
-                            <p>Nivel de acceso: <b>{{ $user->rol->name }}</b></p>
+                        <div class="card-body body-card">
+                            <p class="pdark">{{ __('Bienvenido') }} {{ $user->name }}</p>
+                            <p class="pdark">Nivel de acceso: <b>{{ $user->rol->name }}</b></p>
 
                             <table class="table table-responsive table-bordered">
                                 <thead>
@@ -71,10 +71,10 @@
                         </div>
                     @elseif($user->rol_id == 2 || $user->rol_id == 3 || $user->rol_id == 4)
                         <div class="card-body">
-                            {{ __('Bienvenido') }} {{ $user->name }}
-                            <p>Nivel de acceso: <b>{{ $user->rol->name }}</b></p>
-                            <p>perteneces al grupo de: <b>{{ $user->people->group->name }}</b></p>
-                            <ul>
+                            <p class="pdark">{{ __('Bienvenido') }} {{ $user->name }}</p>
+                            <p class="pdark">Nivel de acceso: <b>{{ $user->rol->name }}</b></p>
+                            <p class="pdark">perteneces al grupo de: <b>{{ $user->people->group->name }}</b></p>
+                            <ul class="pdark">
                                 <li>
                                     <p>Nombre: {{ $user->people->name }}</p>
                                 </li>
