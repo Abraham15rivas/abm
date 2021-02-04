@@ -67,7 +67,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="group" class="col-form-label">Grupo de usuario</label>
-                                <select name="group" id="rol" required>
+                                <select name="group" id="group" required>
                                     @foreach ($groups as $item)
                                         <option value="{{ $item->id }}" @if($person->group->id == $item->id) selected @endif>{{ $item->name }}</option>
                                     @endforeach

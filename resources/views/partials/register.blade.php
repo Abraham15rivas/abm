@@ -44,7 +44,7 @@
                                 <label for="rol" class="col-form-label">Nivel de Accesso:</label>
                                 <select name="rol" id="rol" required>
                                     @foreach ($rols as $item)
-                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        <option value="{{ $item->id }}" @if($item->id == old('rol')) selected @endif>{{ $item->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -66,9 +66,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="group" class="col-form-label">Grupo de usuario</label>
-                                <select name="group" id="rol" value="{{ old('') }}" required>
+                                <select name="group" id="group" required>
                                     @foreach ($groups as $item)
-                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        <option value="{{ $item->id }}" @if($item->id == old('group')) selected @endif>{{ $item->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
