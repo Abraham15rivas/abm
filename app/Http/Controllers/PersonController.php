@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\{Person, Rol, Group, User};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Validator;
-
+use App\Http\Requests\PersonRequest;
+use Alert;
 class PersonController extends Controller
 {
     /**
@@ -38,8 +38,12 @@ class PersonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PersonRequest $request)
     {
+        $request->validate([
+            'email' => 'required|string|email|max:255|unique:users',
+        ]);
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -47,16 +51,17 @@ class PersonController extends Controller
             'rol_id' =>  $request->rol
         ]);
 
-        $person = Person::create([
+        Person::create([
             'name' => $request->name_p,
             'surname' => $request->surname,
             'phone_number' => $request->phone_number,
-            'code' => Hash::make($request->email),
+            'code' => md5($request->email),
             'adress' => $request->adress,
             'user_id' => $user->id, 
             'gruop_id' => $request->group
         ]);
 
+        alert()->success('Registro exitoso','Registrado correctamente');
         return redirect()->to('home');
     }
 
@@ -93,13 +98,13 @@ class PersonController extends Controller
      * @param  \App\Person  $person
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Person $person)
+    public function update(PersonRequest $request, Person $person)
     {
         $person->update([
             'name' => $request->name_p,
             'surname' => $request->surname,
             'phone_number' => $request->phone_number,
-            'code' => Hash::make($request->email),
+            'code' => md5($request->email),
             'adress' => $request->adress,
             'gruop_id' => $request->group
         ]);
@@ -112,6 +117,7 @@ class PersonController extends Controller
             'rol_id' =>  $request->rol
         ]);
 
+        alert()->success('Actualización exitosa','Datos actualizados correctamente');
         return redirect()->to('home');
     }
 
@@ -125,6 +131,7 @@ class PersonController extends Controller
     {
         User::destroy($person->user_id);
 
+        alert()->success('Eliminación exitosa','Registrados borrados correctamente');
         return redirect()->to('home');
     }
 }

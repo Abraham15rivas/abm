@@ -38,10 +38,14 @@
                                 <input type="password" name="password" class="form-control" id="password" value="" required>
                             </div>
                             <div class="form-group">
+                                <label for="password" class="col-form-label">Confirmar password:</label>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                            <div class="form-group">
                                 <label for="rol" class="col-form-label">Nivel de Accesso:</label>
                                 <select name="rol" id="rol" required>
                                     @foreach ($rols as $item)
-                                        <option value="{{ $item->id }}" @if($person->user->rol->id == $item->id) seleted @endif>{{ $item->name }}</option>
+                                        <option value="{{ $item->id }}" @if($person->user->rol->id == $item->id) selected @endif>{{ $item->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -65,7 +69,7 @@
                                 <label for="group" class="col-form-label">Grupo de usuario</label>
                                 <select name="group" id="rol" required>
                                     @foreach ($groups as $item)
-                                        <option value="{{ $item->id }}" @if($person->group->id == $item->id) seleted @endif>{{ $item->name }}</option>
+                                        <option value="{{ $item->id }}" @if($person->group->id == $item->id) selected @endif>{{ $item->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

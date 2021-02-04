@@ -26,15 +26,19 @@
                             @csrf
                             <div class="form-group">
                             <label for="name" class="col-form-label">Nombre de usuario:</label>
-                            <input type="text" name="name" class="form-control" id="name" required>
+                            <input type="text" name="name" class="form-control" id="name" value="{{ old('name') }}" required>
                             </div>
                             <div class="form-group">
                                 <label for="email" class="col-form-label">Email:</label>
-                                <input type="text" name="email" class="form-control" id="email" required>
+                                <input type="text" name="email" class="form-control" id="email" value="{{ old('email') }}" required>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="col-form-label">Password:</label>
                                 <input type="password" name="password" class="form-control" id="password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="col-form-label">Confirmar password:</label>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                             <div class="form-group">
                                 <label for="rol" class="col-form-label">Nivel de Accesso:</label>
@@ -46,23 +50,23 @@
                             </div>
                             <div class="form-group">
                                 <label for="name_p" class="col-form-label">Nombre</label>
-                                <input type="text" class="form-control" name="name_p" id="name_p" required>
+                                <input type="text" class="form-control" name="name_p" id="name_p" value="{{ old('name_p') }}" required>
                             </div>
                             <div class="form-group">
                                 <label for="surname" class="col-form-label">Apellido:</label>
-                                <input type="text" class="form-control" name="surname" id="surname" required>
+                                <input type="text" class="form-control" name="surname" id="surname" value="{{ old('surname') }}" required>
                             </div>
                             <div class="form-group">
                                 <label for="phone_number" class="col-form-label" >Número de telefono:</label>
-                                <input type="number" class="form-control" name="phone_number" id="phone_number" required>
+                                <input type="number" class="form-control" name="phone_number" id="phone_number" value="{{ old('phone_number') }}" required>
                             </div>
                             <div class="form-group">
                             <label for="adress" class="col-form-label">Dirección:</label>
-                            <textarea class="form-control" name="adress" id="adress" required></textarea>
+                            <textarea class="form-control" name="adress" id="adress" required>{{ old('adress') }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="group" class="col-form-label">Grupo de usuario</label>
-                                <select name="group" id="rol" required>
+                                <select name="group" id="rol" value="{{ old('') }}" required>
                                     @foreach ($groups as $item)
                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                                     @endforeach

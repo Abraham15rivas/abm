@@ -49,9 +49,9 @@
                                             <td>{{ $user_r->email }}</td>
                                             <td>{{ $user_r->rol->name }}</td>
                                             <td>{{ $user_r->people->group->name }}</td>
+                                            <td>{{ $user_r->people->code }}</td>
                                             <td>{{ $user_r->people->name }}</td>
                                             <td>{{ $user_r->people->surname }}</td>
-                                            <td>{{ $user_r->people->code }}</td>
                                             <td>{{ $user_r->people->phone_number }}</td>
                                             <td>{{ $user_r->people->adress }}</td>
                                             <td calss="text-center">

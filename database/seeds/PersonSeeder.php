@@ -30,7 +30,7 @@ class PersonSeeder extends Seeder
         Person::create([
             'name' => 'test',
             'surname' => 'test apellido',
-            'code' => Hash::make('nuevo'),
+            'code' => md5('test@gmail.com'),
             'adress' => 'Caracas',
             'phone_number' => '0414131584',
             'user_id' => 2,
