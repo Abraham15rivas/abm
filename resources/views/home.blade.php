@@ -14,9 +14,10 @@
                         </div>
                     @endif
 
-                    @if($user->rol_id == 1 || $user->rol_id == 2)
+                    @if($user->rol_id == 1)
                         <div class="card-body">
-                            {{ __('Bienvenido') }} {{ $user->rol->name }}
+                            {{ __('Bienvenido') }} {{ $user->name }}
+                            <p>Nivel de acceso: <b>{{ $user->rol->name }}</b></p>
 
                             <table class="table table-responsive table-bordered">
                                 <thead>
@@ -68,16 +69,27 @@
                             </table>
 
                         </div>
-                    @elseif($user->rol_id == 3 || $user->rol_id == 4)
+                    @elseif($user->rol_id == 2 || $user->rol_id == 3 || $user->rol_id == 4)
                         <div class="card-body">
-                            {{ __('Bienvenido') }} {{ $user->rol->name }}
-                            <p>perteneces al grupo de: {{ $user->people->group->name }}</p>
+                            {{ __('Bienvenido') }} {{ $user->name }}
+                            <p>Nivel de acceso: <b>{{ $user->rol->name }}</b></p>
+                            <p>perteneces al grupo de: <b>{{ $user->people->group->name }}</b></p>
                             <ul>
-                                <li>{{ $user->people->name }}</li>
-                                <li>{{ $user->people->surname }}</li>
-                                <li>{{ $user->people->code }}</li>
-                                <li>{{ $user->people->phone_number }}</li>
-                                <li>{{ $user->people->adress }}</li>
+                                <li>
+                                    <p>Nombre: {{ $user->people->name }}</p>
+                                </li>
+                                <li>
+                                    <p>Apellido: {{ $user->people->surname }}</p>
+                                </li>
+                                <li>
+                                    <p>Código de usuario: {{ $user->people->code }}</p>
+                                </li>
+                                <li>
+                                    <p>Número de télefono: {{ $user->people->phone_number }}</p>
+                                </li>
+                                <li>
+                                    <p>Dirección: {{ $user->people->adress }}</p>
+                                </li>
                             </ul>
                         </div>
                     @endif

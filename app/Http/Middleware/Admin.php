@@ -16,7 +16,7 @@ class Admin
     public function handle($request, Closure $next)
     {
         $user = \Auth::user();
-        if ($user->rol_id == 1 || $user->rol_id == 2) {
+        if ($user->rol_id == 1) {
             return $next($request);
         } else {
             return redirect()->to('home');

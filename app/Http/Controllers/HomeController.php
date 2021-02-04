@@ -27,9 +27,9 @@ class HomeController extends Controller
         $user = auth()->user();
         $users = collect();
         
-        if($user->id == 3 || $user->id == 4) {
+        if($user->rol_id == 3 || $user->rol_id == 4 || $user->rol_id == 2) {
             $user->load('people', 'people.group', 'rol');
-        } else if ($user->id == 1 || $user->id == 2) {
+        } else if ($user->rol_id == 1) {
             $users = User::where('id', '!=', 1)->get()->load('people', 'people.group', 'rol');
         }
 
